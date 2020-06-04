@@ -4,7 +4,7 @@ import TaskInput from './components/TaskInput'
 import { Task } from './components/Types'
 import './App.css'
 
-const initialState: Task[] = [
+const initialState: Task[] = [//初期値を定義
     {
         id: 2,
         title: '次のTodo',
@@ -17,7 +17,7 @@ const initialState: Task[] = [
 ]
 
 const App: React.FC = () => {
-    const [tasks, setTasks] = useState(initialState)
+    const [tasks, setTasks] = useState(initialState)// useStateに渡した値がstateの初期値になる
 
     return (
         <div>

@@ -19,7 +19,7 @@ const TaskItem: React.FC<Props> = ({ task, handleDone, handleDelete }) => {
                     onClick={() => handleDone(task)}
                     defaultChecked={task.done}
                 />
-                <span className="checkbox-label">{ task.title }     登録日：{task.time}</span>
+                <span className="checkbox-label">{task.id}{ task.title }     登録日：{task.time}</span>
             </label>
             <button
                 onClick={() => handleDelete(task)}

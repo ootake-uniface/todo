@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { Task } from './Types'
-//export defaultを持っていないので、{}で囲む
-const timestamp = Date.now(); // This would be the timestamp you want to format
+//Typesがexport defaultを持っていないので、{}で囲む
 
-console.log(new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
- 
+ //データの入った “props”（「プロパティ」の意味）というオブジェクトを引数として受け取り、React 要素を返す
 type Props = {
     setTasks: React.Dispatch<React.SetStateAction<Task[]>>
     tasks: Task[]
 }
+
  /*React.FCという型を指定してますが、これは関数コンポーネント（FunctionComponent）のことです。
 Reactはこの関数コンポーネントのreturnにHTMLタグ（のようなものを）を書くことでそのまま表示することができます。
 これをJSXと呼びますが、TypeScriptなのでTSXです。
@@ -26,9 +25,10 @@ const TaskInput: React.FC<Props> = ({ setTasks, tasks }) => {
         setInputTitle(e.target.value)
     }
  
+    //入力を元にTaskを登録
     const handleSubmit = () => {
-        setCount(count + 1)
-         
+        setCount(count + 1)//countは、tasks.lengthを初期化時に1度だけ受け取り、あとは数値が増えていく
+        const timestamp = Date.now(); // This would be the timestamp you want to format
         const newTask: Task = {
             id: count,
             title: inputTitle,
@@ -36,7 +36,7 @@ const TaskInput: React.FC<Props> = ({ setTasks, tasks }) => {
             time: Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp)
         }
          
-        setTasks([newTask, ...tasks])//...tasksで配列の中身全てを入力、先頭に新規タスクが入る
+        setTasks([newTask, ...tasks])//先頭に新規タスクが入り、...tasksで配列の中身全てを入力
         setInputTitle('')
  
     }
@@ -49,7 +49,7 @@ const TaskInput: React.FC<Props> = ({ setTasks, tasks }) => {
                         type="text"
                         className="input"
                         value={inputTitle}//{}で囲んで変数表示
-                        onChange={handleInputChange}
+                        onChange={handleInputChange}//inputTitleを更新しないと初期値として与えられた''から更新されない
                     />
                     <button onClick={handleSubmit} className="btn is-primary">追加</button>
                 </div>
