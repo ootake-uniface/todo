@@ -18,10 +18,11 @@ const initialState: Task[] = [//初期値を定義
 
 const App: React.FC = () => {
     const [tasks, setTasks] = useState(initialState)// useStateに渡した値がstateの初期値になる
+    const [thema,setThema] = useState(false)
 
     return (
-        <div>
-            <TaskInput tasks={tasks} setTasks={setTasks} />
+        <div id={thema ? 'dark' : ''}>
+            <TaskInput tasks={tasks} setTasks={setTasks} thema={thema} setThema={setThema}/>
             <TaskList tasks={tasks} setTasks={setTasks} />
         </div>
     )
