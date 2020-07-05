@@ -3,6 +3,7 @@ import TaskList from './components/TaskList'
 import TaskInput from './components/TaskInput'
 import { Task } from './components/Types'
 import './App.css'
+import Tour from "./components/Tour";
 
 const initialState: Task[] = [//初期値を定義
     {
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <div id={thema ? 'dark' : ''}>
             <TaskInput tasks={tasks} setTasks={setTasks} thema={thema} setThema={setThema}/>
             <TaskList tasks={tasks} setTasks={setTasks} />
+            <Tour/>
         </div>
     )
 }

@@ -5,4 +5,6 @@ export type Task = {
     time?: string
 }
 export type Thema=boolean
+
+
 //オブジェクトの型を定義

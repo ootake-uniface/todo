@@ -52,13 +52,13 @@ const TaskInput: React.FC<Props> = ({ setTasks, tasks ,thema,setThema }) => {
                 <div className="inner">
                     <input
                         type="text"
-                        className="input"
+                        className="input target1"
                         value={inputTitle}//{}で囲んで変数表示
                         onChange={handleInputChange}//inputTitleを更新しないと初期値として与えられた''から更新されない
                     />
-                    <button onClick={handleSubmit} className="btn is-primary">追加</button>
+                    <button onClick={handleSubmit} className="btn is-primary target2">追加</button>
                     <p>テーマ{thema ? "lightに" : "darkに"}</p>
-                    <div className="toggle-switch">
+                    <div className="toggle-switch target3">
                         <input id="toggle" className="toggle-input" type='checkbox' onChange={handleThema}/>
                         <label htmlFor="toggle" className="toggle-label"/>
                     </div> 
